@@ -5,13 +5,16 @@
 ##########################################################
 ARG BASE_IMAGE
 FROM openjdk:8u171-jdk-stretch as builder
-LABEL maintainer="Victor Romero <victor.romero@gmail.com>"
+LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
+
 
 ARG ACTIVEMQ_ARTEMIS_VERSION
 ARG ACTIVEMQ_DISTRIBUTION_URL
 ENV JMX_EXPORTER_VERSION=0.3.1
 ENV JGROUPS_KUBERNETES_VERSION=0.9.3
 ENV JAVAX_JSON_VERSION=1.1.4
+
+RUN echo "ActiveMQ version is ${ACTIVEMQ_ARTEMIS_VERSION}"
 
 # See https://github.com/hadolint/hadolint/wiki/DL4006
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -128,10 +131,10 @@ COPY assets/jmx-exporter-config.yaml /opt/jmx-exporter/etc/
 ##########################################################
 ## Run Image                                             #
 ##########################################################
-ARG BASE_IMAGE
+ARG BASE_IMAGE=openjdk:8u232-jre-stretch
 # hadolint ignore=DL3006
 FROM $BASE_IMAGE
-LABEL maintainer="Victor Romero <victor.romero@gmail.com>"
+LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
 ARG ACTIVEMQ_ARTEMIS_VERSION
 ENV ACTIVEMQ_ARTEMIS_VERSION=$ACTIVEMQ_ARTEMIS_VERSION
 
