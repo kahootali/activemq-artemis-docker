@@ -54,7 +54,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./src/
-        file: ./Dockerfile
+        file: ./src/Dockerfile
         pull: true
         push: true
         build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
@@ -65,7 +65,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./src/
-        file: ./Dockerfile.alpine
+        file: ./src/Dockerfile.alpine
         pull: true
         push: true
         build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
