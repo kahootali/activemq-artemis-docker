@@ -34,7 +34,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /opt
 RUN   wget "https://repository.apache.org/content/repositories/releases/org/apache/activemq/apache-artemis/${ACTIVEMQ_ARTEMIS_VERSION}/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" && \
       wget "https://repository.apache.org/content/repositories/releases/org/apache/activemq/apache-artemis/${ACTIVEMQ_ARTEMIS_VERSION}/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc" && \
-      wget "http://apache.org/dist/activemq/KEYS" && \
+      wget "https://downloads.apache.org/activemq/KEYS" && \
       gpg --no-tty --import "KEYS" && \
       gpg --no-tty "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc" && \
       tar xfz "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" && \
