@@ -3,15 +3,16 @@
 ##########################################################
 ## Build Image                                           #
 ##########################################################
-ARG BASE_IMAGE
 FROM openjdk:8u171-jdk-stretch as builder
-LABEL maintainer="Victor Romero <victor.romero@gmail.com>"
+LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
+
 
 ARG ACTIVEMQ_ARTEMIS_VERSION
-ARG ACTIVEMQ_DISTRIBUTION_URL
 ENV JMX_EXPORTER_VERSION=0.3.1
 ENV JGROUPS_KUBERNETES_VERSION=0.9.3
 ENV JAVAX_JSON_VERSION=1.1.4
+
+RUN echo "ActiveMQ version is ${ACTIVEMQ_ARTEMIS_VERSION}"
 
 # See https://github.com/hadolint/hadolint/wiki/DL4006
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -31,28 +32,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Uncompress and validate
 WORKDIR /opt
-RUN if (echo "${ACTIVEMQ_DISTRIBUTION_URL}" | grep -Eq  ".zip\$" ) ; \
-    then \
-      mkdir tmp && \
-      wget "${ACTIVEMQ_DISTRIBUTION_URL}" -P tmp/ && \
-      unzip -d tmp -q "tmp/*.zip" && rm -f tmp/*.zip && ls -l tmp/ && \
-        mv tmp/* ./apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION} && \
-        ln -s "/opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}" "/opt/apache-artemis" && \
-        rmdir tmp; \
-    elif test -n "${ACTIVEMQ_DISTRIBUTION_URL}" ; \
-    then \
-      echo "Only .zip format is supported when using ACTIVEMQ_DISTRIBUTION_URL" && \
-      exit 2; \
-    else \
-      wget "https://repository.apache.org/content/repositories/releases/org/apache/activemq/apache-artemis/${ACTIVEMQ_ARTEMIS_VERSION}/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" && \
+RUN   wget "https://repository.apache.org/content/repositories/releases/org/apache/activemq/apache-artemis/${ACTIVEMQ_ARTEMIS_VERSION}/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" && \
       wget "https://repository.apache.org/content/repositories/releases/org/apache/activemq/apache-artemis/${ACTIVEMQ_ARTEMIS_VERSION}/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc" && \
-      wget "http://apache.org/dist/activemq/KEYS" && \
+      wget "https://downloads.apache.org/activemq/KEYS" && \
       gpg --no-tty --import "KEYS" && \
       gpg --no-tty "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc" && \
       tar xfz "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" && \
       ln -s "/opt/apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}" "/opt/apache-artemis" && \
-      rm -f "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" "KEYS" "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc"; \
-    fi
+      rm -f "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz" "KEYS" "apache-artemis-${ACTIVEMQ_ARTEMIS_VERSION}-bin.tar.gz.asc";
 
 # Create broker instance
 # Per recommendation of https://activemq.apache.org/artemis/docs/latest/perf-tuning.html : -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -XX:+UseParallelOldGC 
@@ -128,10 +115,9 @@ COPY assets/jmx-exporter-config.yaml /opt/jmx-exporter/etc/
 ##########################################################
 ## Run Image                                             #
 ##########################################################
-ARG BASE_IMAGE
 # hadolint ignore=DL3006
-FROM $BASE_IMAGE
-LABEL maintainer="Victor Romero <victor.romero@gmail.com>"
+FROM openjdk:8u232-jre-stretch
+LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
 ARG ACTIVEMQ_ARTEMIS_VERSION
 ENV ACTIVEMQ_ARTEMIS_VERSION=$ACTIVEMQ_ARTEMIS_VERSION
 

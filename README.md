@@ -1,10 +1,8 @@
-![latest 2.16.0](https://img.shields.io/badge/latest-2.16.0-blue.svg?style=flat) ![License MIT](https://img.shields.io/badge/license-APACHE-blue.svg) [![Build Status](https://travis-ci.org/vromero/activemq-artemis-docker.svg?branch=master)](https://travis-ci.org/vromero/activemq-artemis-docker) [![](https://img.shields.io/docker/stars/vromero/activemq-artemis.svg)](https://hub.docker.com/r/vromero/activemq-artemis 'DockerHub') [![](https://img.shields.io/docker/pulls/vromero/activemq-artemis.svg)](https://hub.docker.com/r/vromero/activemq-artemis 'DockerHub') [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/vromero)
+![latest 2.17.0](https://img.shields.io/badge/latest-2.17.0-blue.svg?style=flat) ![License MIT](https://img.shields.io/badge/license-APACHE-blue.svg) [![Build Status]((https://github.com/kahootali/activemq-artemis-docker/workflows/Build%20on%20Master/badge.svg))](https://github.com/kahootali/activemq-artemis-docker/actions) 
 
-## THIS PROJECT IS ARCHIVED 
+# Activemq Artemis Docker
 
-It has been quite a ride but after a few years, with multiple initiatives going on around Artemis and Docker both from Redhat and from Apache, I've decided that its time to let these project take the spot the community around this project and I have been occuping till now.
-
-Of course the project will remain read-only and you should feel free to fork but I won't be maintaining anymore.
+This repo is forked from [vromero/activemq-artemis-docker](https://github.com/vromero/activemq-artemis-docker) and as it has been archived, so I am maintaining this image and the respective helm chart under [kahootali/activemq-artemis-helm](https://github.com/kahootali/activemq-artemis-helm).
 
 ## 1. What is ActiveMQ Artemis?
 
@@ -12,45 +10,9 @@ Of course the project will remain read-only and you should feel free to fork but
 
 ![logo](https://activemq.apache.org/assets/img/activemq_logo_black_small.png)
 
-## 2. Tags and `Dockerfile` links
+## 2. Tags
 
-| Debian Based                                                                                 | Alpine Based                                                                                               |
-|--------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [`latest`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile) | [`latest-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine) |
-| [`2.16.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.16.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.15.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.15.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.14.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.14.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.13.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.13.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.12.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.12.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.11.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.11.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.10.1`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.10.1-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.10.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.10.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.9.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.9.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.8.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.8.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.7.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.7.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.6.4`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.6.4-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.6.3`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.6.3-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.6.2`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.6.2-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.6.1`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.6.1-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.6.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.6.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.5.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.5.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.4.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.4.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.3.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.3.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.2.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.2.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.1.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.1.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`2.0.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`2.0.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| [`1.5.6`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)  | [`1.5.6-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)  |
-| ~~[`1.5.5`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.5.5-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.5.4`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.5.4-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.5.3`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.5.3-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.5.2`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.5.2-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.5.1`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.5.1-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.5.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.5.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.4.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.4.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.3.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.3.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.2.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.2.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.1.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.1.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
-| ~~[`1.0.0`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile)~~  | ~~[`1.0.0-alpine`](https://raw.githubusercontent.com/vromero/activemq-artemis-docker/master/src/Dockerfile.alpine)~~  |
+I am maintaining this docker image from 2.16.0. The previous versions were managed by vromero and can be seen in his repo. After that the docker images can be seen at [kahootali/activemq-artemis-docker](https://hub.docker.com/repository/docker/kahootali/activemq-artemis-docker)
 
 ## 3. About this image
 
@@ -58,11 +20,6 @@ The ActiveMQ Artemis images come in two flavors, both equally supported :
 
 - **Debian based**: the default one.
 - **Alpine based**: much lighter.
-
-All versions of ActiveMQ Artemis are provided for the time being but versions previous to 1.5.5 shall be considered deprecated and could be removed at any time.
-
-This image shall not be considered production ready as is. If you plan to use this image in a production environment, fork the image in order to maintain stability as
-the build is [reproducible](https://reproducible-builds.org/) in a best effort basis. Then at each rebase, make sure you tests the changes you are importing.
 
 ## 4. How to use this image
 
@@ -102,14 +59,14 @@ There are different methods to run a Docker image, from interactive Docker to Ku
 Compose. This documentation will cover only Docker with an interactive terminal mode. You should
 refer to the appropriate documentation for more information around other execution methods.
 
-To run ActiveMQ with AMQP, JMS and the web console open (if your are running `2.3.0` or later),
+To run ActiveMQ with AMQP, JMS and the web console open (if you are running `2.3.0` or later),
 run the following command:
 
 ```console
 docker run -it --rm \
   -p 8161:8161 \
   -p 61616:61616 \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```  
 
 After a few seconds you'll see in the output a block similar to:
@@ -132,9 +89,9 @@ If you wish to change the default username and password of `artemis` / `simetrae
 
 ```console
 docker run -it --rm \
-  -e ARTEMIS_USERNAME=myuser \
+  -e ARTEMIS_USERNAME=kahootali \
   -e ARTEMIS_PASSWORD=otherpassword \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 ### 5.2 Setting the memory values
@@ -148,7 +105,7 @@ circumstances it might be advisable to fine tune the memory to manual values, in
 docker run -it --rm \
   -e 'ARTEMIS_MIN_MEMORY=1512M' \
   -e 'ARTEMIS_MAX_MEMORY=3048M' \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 The previous example will launch Apache ActiveMQ Artemis in docker with 1512 MB of memory, with a maximum usage of 3048 MB of memory.
@@ -173,7 +130,7 @@ in the next listing:
 ```console
 docker run -it --rm \
   -e ARTEMIS_PERF_JOURNAL=ALWAYS \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 ### 5.4 Critical Analysis
@@ -205,7 +162,7 @@ docker run -it --rm \
   -e ENABLE_JMX=true \
   -e JMX_PORT=1199 \
   -e JMX_RMI_PORT=1198 \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 ### 5.6 Using JSON Output
@@ -217,7 +174,7 @@ the output. To enable it `LOG_FORMATTER=JSON` can be passed as environment varia
 ```console
 docker run -it --rm \
   -e LOG_FORMATTER=JSON \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 When used, the output will look similar to the following listing:
 
@@ -248,7 +205,7 @@ To see what is exported just:
 docker run -it --rm \
   -p9404:9404 \
   -e ENABLE_JMX_EXPORTER=true \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 And then in a different terminal run:
@@ -305,7 +262,7 @@ down to whatever value is best suited to you for improved security through the e
 ```console
 docker run -it --rm \
   -e JOLOKIA_ALLOW_ORIGIN=192.168.1.1 \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 ### 5.9 Overriding parts of the configuration
@@ -317,7 +274,7 @@ This docker image makes it simple to set that element using the environment prop
 ```console
 docker run -it --rm \
   -e DISABLE_SECURITY=true \
-  vromero/activemq-artemis
+  kahootali/activemq-artemis
 ```
 
 Please keep in mind no production system, possible no environment at all, should ever disable security.
@@ -404,19 +361,17 @@ A file name `broker-00.xslt` with content like the following listing, could be u
 ```
 
 **Entrypoint Overrides**
-
 Multiple shell scripts can be dropped in the `/var/lib/artemis/etc-override` volume. Those shell files must be named following the name convention `entrypoint-{{num}}.sh` where `num` is a numeric representation of the snippet.
 The shell scripts will be *executed* in alphabetical precedence of the file names on startup of the docker container.   
 
 A typical use case for using entrypoint overrides would be if you want to make a minor modification to a file which cannot be overriden using the 2 methods above and you do not want to expose the etc volume.
 
-
 If you would like to see the final result of your transformations, execute the following:
 
-```
+```sh
 docker run -it --rm \
   -v /var/artemis-data/override:/var/lib/artemis/etc-override \
-  vromero/activemq-artemis \
+  kahootali/activemq-artemis \
   cat ../etc/broker.xml
 ```
 
@@ -426,11 +381,12 @@ ActiveMQ allows you to override key configuration values using [System propertie
 This docker image has built in support to set these values by passing environment variables prefixed with BROKER_CONFIG to the docker image.  
 
 Below is an example which overrides the global-max-size and disk-scan-period values
-```
+
+```sh
 docker run -it --rm   -p 8161:8161 \
     -e BROKER_CONFIG_GLOBAL_MAX_SIZE=50000 \
     -e BROKER_CONFIG_DISK_SCAN_PERIOD=6000 \
-    vromero/activemq-artemis
+    kahootali/activemq-artemis
 ```
 
 ### 5.13 Environment Variables
@@ -465,8 +421,7 @@ Additionally, the following environment variables are supported
 
 ## 6. Running in orchestrators
 
-At the moment only docker is directly supported for this image. However there is an attempt to create
-a helm chart for Kubernetes and some configuration tuning for OpenShift.
+You can see the [helm chart](https://github.com/kahootali/activemq-artemis-helm) for Kubernetes and some configuration tuning for OpenShift.
 
 ### 6.1 Running in Kubernetes
 
@@ -479,8 +434,8 @@ included to facilitate initial membership discovery.
 [jgroups-kubernetes](https://github.com/jgroups-extras/jgroups-kubernetes/tree/0.9.3) version `0.9.3` is included in the
 classpath of this image, however everything about the configuration of jgroups and jgroups-kubernetes is left to the user.
 
-If you rather prefer a easier solution to run a cluster of ActiveMQ Artemis nodes, there is an attempt to create a Helm chart
-by the same author of this image. It can be found [here](https://github.com/vromero/activemq-artemis-helm). It
+If you rather prefer a easier solution to run a cluster of ActiveMQ Artemis nodes, there is a Helm chart
+by the same author of this image that I am maintaining now. It can be found [here](https://github.com/kahootali/activemq-artemis-helm). It
 does leverage `jgroups-kubernetes` in a transparent way.
 
 ### 6.2 OpenShift
@@ -492,7 +447,7 @@ The biggest problem to run this image is the automount of empty directories beca
 In order to restore it the environment variable `RESTORE_CONFIGURATION` has been created. It can be used as follows:
 
 ```bash
-oc new-app --name=artemis vromero/activemq-artemis -e RESTORE_CONFIGURATION=true
+oc new-app --name=artemis kahootali/activemq-artemis -e RESTORE_CONFIGURATION=true
 ```
 
 ## 7. License
@@ -503,10 +458,10 @@ View [license information](http://www.apache.org/licenses/LICENSE-2.0) for the s
 
 ### 8.1 Issues
 
-If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/vromero/activemq-artemis-docker/issues).
+If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/kahootali/activemq-artemis-docker/issues).
 
 ### 8.2 Contributing
 
 You are invited to contribute new features, fixes, or updates, large or small; we are always thrilled to receive pull requests, and do our best to process them as fast as we can.
 
-Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/vromero/activemq-artemis-docker/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
+Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/kahootali/activemq-artemis-docker/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
