@@ -1,4 +1,4 @@
-![latest 2.17.0](https://img.shields.io/badge/latest-2.17.0-blue.svg?style=flat) ![License MIT](https://img.shields.io/badge/license-APACHE-blue.svg) [![Build Status]((https://github.com/kahootali/activemq-artemis-docker/workflows/Build%20on%20Master/badge.svg))](https://github.com/kahootali/activemq-artemis-docker/actions) 
+![latest 2.17.0](https://img.shields.io/badge/latest-2.17.0-blue.svg?style=flat) ![License MIT](https://img.shields.io/badge/license-APACHE-blue.svg) [![Build Status](https://github.com/kahootali/activemq-artemis-docker/workflows/Build%20on%20Master/badge.svg)](https://github.com/kahootali/activemq-artemis-docker/actions)
 
 # Activemq Artemis Docker
 
@@ -167,7 +167,7 @@ docker run -it --rm \
 
 ### 5.6 Using JSON Output
 
-It can be oftentimes preferrable to have the log output structured in a parseable format. 
+It can be oftentimes preferrable to have the log output structured in a parseable format.
 This image supports the usage of `org.jboss.logmanager.formatters.JsonFormatter` to format
 the output. To enable it `LOG_FORMATTER=JSON` can be passed as environment variable.
 
@@ -176,6 +176,7 @@ docker run -it --rm \
   -e LOG_FORMATTER=JSON \
   kahootali/activemq-artemis
 ```
+
 When used, the output will look similar to the following listing:
 
 ```console
@@ -216,7 +217,7 @@ curl http://127.0.0.1:9404
 
 To obtain the following and more:
 
-```
+```console
 # HELP artemis_disk_scan_period How often to check for disk space usage, in milliseconds (org.apache.activemq.artemis<broker="0.0.0.0"><>DiskScanPeriod)
 # TYPE artemis_disk_scan_period counter
 artemis_disk_scan_period 5000.0
@@ -361,6 +362,7 @@ A file name `broker-00.xslt` with content like the following listing, could be u
 ```
 
 **Entrypoint Overrides**
+
 Multiple shell scripts can be dropped in the `/var/lib/artemis/etc-override` volume. Those shell files must be named following the name convention `entrypoint-{{num}}.sh` where `num` is a numeric representation of the snippet.
 The shell scripts will be *executed* in alphabetical precedence of the file names on startup of the docker container.   
 
