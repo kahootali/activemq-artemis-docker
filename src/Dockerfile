@@ -3,7 +3,7 @@
 ##########################################################
 ## Build Image                                           #
 ##########################################################
-FROM openjdk:17.0.2-jdk as builder
+FROM openjdk:17.0.2-jdk-buster as builder
 LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
 
 
