@@ -116,7 +116,7 @@ COPY assets/jmx-exporter-config.yaml /opt/jmx-exporter/etc/
 ## Run Image                                             #
 ##########################################################
 # hadolint ignore=DL3006
-FROM 17.0.2-jdk-buster
+FROM openjdk:17.0.2-jdk-buster
 LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
 ARG ACTIVEMQ_ARTEMIS_VERSION
 ENV ACTIVEMQ_ARTEMIS_VERSION=$ACTIVEMQ_ARTEMIS_VERSION

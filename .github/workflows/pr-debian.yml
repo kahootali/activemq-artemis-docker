@@ -1,4 +1,4 @@
-name: Build on PR
+name: Build on PR for Debian Image
 
 on:
   pull_request:
@@ -60,24 +60,13 @@ jobs:
         build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
         cache-to: type=inline
         tags: ${{ env.IMAGE }}
-    
-    - name: Build and Push Docker Image for Alpine
-      uses: docker/build-push-action@v2
-      with:
-        context: ./src/
-        file: ./src/Dockerfile.alpine
-        pull: true
-        push: true
-        build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
-        cache-to: type=inline
-        tags: ${{ env.IMAGE }}-alpine
 
     - name: Comment on PR
       uses: mshick/add-pr-comment@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        message: '@${{ github.actor }} Image is available for testing. `docker pull ${{ env.IMAGE }}`'
+        message: '@${{ github.actor }} Debian Image is available for testing. `docker pull ${{ env.IMAGE }}`'
         allow-repeats: false
 
     - name: Notify Failure
