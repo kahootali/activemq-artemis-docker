@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
     - 'src/Dockerfile'
+    - '.github/workflows/pr-debian.yml'
   
 
 jobs:

@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
     - 'src/Dockerfile.alpine'
+    - '.github/workflows/pr-alpine.yml'
 jobs:
   Build-and-Push-Image:
     runs-on: ubuntu-latest
