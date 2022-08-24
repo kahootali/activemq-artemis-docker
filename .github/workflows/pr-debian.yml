@@ -2,6 +2,9 @@ name: Build on PR for Debian Image
 
 on:
   pull_request:
+  paths:
+      - 'src/Dockerfile'
+  
 
 jobs:
   Build-and-Push-Image:
