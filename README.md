@@ -98,8 +98,7 @@ docker run -it --rm \
 
 By default this image does leverage the new features that came in Java 8u131 related to memory ergonomics in containerized environments, more information about it [here](https://developers.redhat.com/blog/2017/03/14/java-inside-docker/).
 
-It does use a `-XX:MaxRAMFraction=2` meaning that half of the memory made avaiable to the container will be used by the Java heap, leaving the other half for other types of Java memory and other OS purposes. However, in some
-circumstances it might be advisable to fine tune the memory to manual values, in that case you can set the memory that you application needs by using the parameters `ARTEMIS_MIN_MEMORY` and `ARTEMIS_MAX_MEMORY`:
+In some circumstances it might be advisable to fine tune the memory to manual values, in that case you can set the memory that you application needs by using the parameters `ARTEMIS_MIN_MEMORY` and `ARTEMIS_MAX_MEMORY`:
 
 ```console
 docker run -it --rm \
