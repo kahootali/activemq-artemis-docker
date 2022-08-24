@@ -1,12 +1,14 @@
-name: Build on Master
+name: Build on PR for Debian Image
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    paths:
+    - 'src/Dockerfile'
+    - '.github/workflows/pr-debian.yml'
+  
 
 jobs:
-  Build-and-Deploy:
+  Build-and-Push-Image:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     name: Build and Push Image to Image registry
@@ -18,22 +20,12 @@ jobs:
     steps:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
 
-    - name: Generate Version
-      id: generate_version
-      uses: anothrNick/github-tag-action@1.39.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
-        DRY_RUN: true
-        DEFAULT_BUMP: "patch"
-        
     - name: Generate Vars
       id: generate_vars
       run: |
-        IMAGE_TAG=${{ steps.generate_version.outputs.new_tag }}
+        # Just Tag
+        IMAGE_TAG=pr-${{ github.event.pull_request.number }}-$(echo ${{ github.event.pull_request.head.sha }} | cut -c1-8)
         # Just Image name
         IMAGE_NAME=${{ github.repository }}
         #Image ID= Name + Tag
@@ -72,21 +64,20 @@ jobs:
         build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
         cache-to: type=inline
         tags: ${{ env.IMAGE }}
-    
-    - name: Build and Push Docker Image for Alpine
-      uses: docker/build-push-action@v2
-      with:
-        context: ./src/
-        file: ./src/Dockerfile.alpine
-        pull: true
-        push: true
-        build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
-        cache-to: type=inline
-        tags: ${{ env.IMAGE }}-alpine
 
-    - name: Push tag
-      uses: anothrNick/github-tag-action@1.39.0
+    - name: Comment on PR
+      uses: mshick/add-pr-comment@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
-        DEFAULT_BUMP: "patch"
+      with:
+        message: '@${{ github.actor }} Debian Image is available for testing. `docker pull ${{ env.IMAGE }}`'
+        allow-repeats: false
+
+    - name: Notify Failure
+      if: failure()
+      uses: mshick/add-pr-comment@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        message: '@${{ github.actor }} The pipeline failed! You better fix it before anyone else finds out! [Build](https://github.com/${{ github.repository }}/commit/${{ github.event.pull_request.head.sha }}/checks) has Failed!'
+        allow-repeats: false
