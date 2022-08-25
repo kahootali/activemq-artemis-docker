@@ -1,4 +1,4 @@
-![latest 2.17.0](https://img.shields.io/badge/latest-2.17.0-blue.svg?style=flat) ![License MIT](https://img.shields.io/badge/license-APACHE-blue.svg) [![Build Status](https://github.com/kahootali/activemq-artemis-docker/workflows/Build%20on%20Master/badge.svg)](https://github.com/kahootali/activemq-artemis-docker/actions)
+![latest 2.17.2](https://img.shields.io/badge/latest-2.17.2-blue.svg?style=flat) ![License MIT](https://img.shields.io/badge/license-APACHE-blue.svg) [![Build Status](https://github.com/kahootali/activemq-artemis-docker/workflows/Build%20on%20Master/badge.svg)](https://github.com/kahootali/activemq-artemis-docker/actions)
 
 # Activemq Artemis Docker
 
