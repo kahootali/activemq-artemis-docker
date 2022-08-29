@@ -10,7 +10,7 @@ LABEL maintainer="Muhammad Ali Kahoot <kahoot.ali@gmail.com>"
 ARG ACTIVEMQ_ARTEMIS_VERSION
 ENV JMX_EXPORTER_VERSION=0.17.0
 ENV JGROUPS_KUBERNETES_VERSION=0.9.3
-ENV JAVAX_JSON_VERSION=1.1.4
+ENV JAKARTA_JSON_VERSION=2.0.1
 
 RUN echo "ActiveMQ version is ${ACTIVEMQ_ARTEMIS_VERSION}"
 
@@ -71,7 +71,7 @@ RUN java -jar /usr/share/java/ivy.jar -dependency org.jgroups.kubernetes kuberne
 
 # JsonFormatter to enable JSON logging #148
 WORKDIR /opt/jsonformatter
-RUN java -jar /usr/share/java/ivy.jar -dependency org.glassfish javax.json "${JAVAX_JSON_VERSION}" -retrieve "[artifact]-[revision](-[classifier]).[ext]" -types bundle
+RUN java -jar /usr/share/java/ivy.jar -dependency org.glassfish jakarta.json "${JAKARTA_JSON_VERSION}" -retrieve "[artifact]-[revision](-[classifier]).[ext]" -types bundle
 
 WORKDIR /var/lib/artemis/etc
 
@@ -80,7 +80,7 @@ RUN sed -i "s/logger.handlers=.*/logger.handlers=CONSOLE/g" logging.properties
 
 # Add JSON log handler
 RUN echo "formatter.JSON=org.jboss.logmanager.formatters.JsonFormatter" | tee -a  logging.properties
-RUN sed -i "s/-Xbootclasspath\/a:\"\(.*\)\"/-Xbootclasspath\/a:\"\1:\/opt\/apache-artemis\/lib\/javax.json-1.1.4.jar\"/g" /var/lib/artemis/bin/artemis
+RUN sed -i "s/-Xbootclasspath\/a:\"\(.*\)\"/-Xbootclasspath\/a:\"\1:\/opt\/apache-artemis\/lib\/jakarta.json.json-2.0.1.jar\"/g" /var/lib/artemis/bin/artemis
 
 # --java-options doesn't seem to work across the board on all versions adding them manually
 RUN sed -i "s/JAVA_ARGS=\"/JAVA_ARGS=\"-Djava.net.preferIPv4Addresses=true -Djava.net.preferIPv4Stack=true -XX:+UnlockExperimentalVMOptions /g" ../etc/artemis.profile
