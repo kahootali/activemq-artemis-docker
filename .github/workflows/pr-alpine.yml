@@ -56,7 +56,7 @@ jobs:
         file: ./src/Dockerfile.alpine
         pull: true
         push: true
-        build-args: ACTIVEMQ_ARTEMIS_VERSION=2.17.0
+        build-args: ACTIVEMQ_ARTEMIS_VERSION=2.18.0
         cache-to: type=inline
         tags: ${{ env.IMAGE }}
 
